@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 18:11:54 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/08 19:16:46 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/08 19:22:47 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,12 @@ void	Bureaucrat::demotion(void)
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Bureaucrat has to high garde");
+	return ("Bureaucrat garde too high");
 }
 
 const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Bureaucrat has to low garde");
+	return ("Bureaucrat garde too low");
 }
 
 std::ostream	&operator<<(std::ostream &os, const Bureaucrat &src)

@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 17:07:11 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/08 14:25:55 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/08 19:21:20 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	hireBureaucrat(const std::string &name, short grade)
 		}
 		catch (Bureaucrat::GradeTooHighException &e)
 		{
-			std::cout << RED << "We can't promote the boss" << RESET << std::endl;
+			std::cout << e.what() << std::endl;
 		}
 		std::cout << bureaucrat << std::endl;
 		try
@@ -47,17 +47,17 @@ void	hireBureaucrat(const std::string &name, short grade)
 		}
 		catch (Bureaucrat::GradeTooLowException &e)
 		{
-		std::cout << RED << "This intern is already at the lowest possible level" << RESET << std::endl;
+			std::cout << e.what() << std::endl;
 		}
 		std::cout << bureaucrat << std::endl;
 	}
 	catch (Bureaucrat::GradeTooHighException &e)
 	{
-		std::cout << RED << "Bureacucrat has too high garde" << RESET << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	catch (Bureaucrat::GradeTooLowException &e)
 	{
-		std::cout << RED << "Bureacucrat has too low garde" << RESET << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	std::endl(std::cout);
 }
