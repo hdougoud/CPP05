@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 18:11:54 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/07 22:01:04 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/08 19:16:46 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ void	Bureaucrat::promotion(void)
 	if (this->_grade == 1)
 	{
 		throw GradeTooHighException();
-		return;
 	}
 	this->_grade -= 1;
 }
@@ -82,7 +81,6 @@ void	Bureaucrat::demotion(void)
 	if (this->_grade == 150)
 	{
 		throw GradeTooLowException();
-		return ;
 	}
 	this->_grade += 1;
 }
