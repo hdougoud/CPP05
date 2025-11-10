@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 17:07:11 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/08 19:21:20 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/08 21:49:43 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "Bureaucrat.hpp"
 #include "color.hpp"
 
-void	hireBureaucrat(const std::string &name, short grade);
+void	hireBureaucrat(const std::string &name, int grade);
 
 int main (void)
 {
@@ -26,7 +26,7 @@ int main (void)
 	return (0);
 }
 
-void	hireBureaucrat(const std::string &name, short grade)
+void	hireBureaucrat(const std::string &name, int grade)
 {
 	std::cout << F_BOLD << F_UNDERLINED << "job interview with " << name << RESET << std::endl;;
 	try

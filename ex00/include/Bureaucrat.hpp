@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 17:17:20 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/07 20:32:17 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/08 21:50:32 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Bureaucrat
 		class	GradeTooHighException;
 		class	GradeTooLowException;
 		const	std::string &getName(void) const;
-		short	getGrade(void) const;
+		int		getGrade(void) const;
 		void	promotion(void);
 		void	demotion(void);
 	private:

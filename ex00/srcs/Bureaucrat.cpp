@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 18:11:54 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/08 19:22:47 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/08 21:50:44 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ const std::string	&Bureaucrat::getName(void) const
 	return (this->_name);
 }
 
-short	Bureaucrat::getGrade(void) const
+int	Bureaucrat::getGrade(void) const
 {
 	return (this->_grade);
 }
