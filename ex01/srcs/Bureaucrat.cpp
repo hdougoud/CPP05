@@ -6,11 +6,12 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 18:11:54 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/10 13:28:53 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/11 15:21:32 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include <exception>
 #include <iostream>
 #include "color.hpp"
 #include "Form.hpp"
@@ -92,11 +93,7 @@ void Bureaucrat::signForm(Form &form) const
 		form.beSigned(*this);
 		std::cout << GREEN << this->_name << " signed " << form.getName() << RESET << std::endl;
 	}
-	catch (Form::alreadySignedException &e)
-	{
-		std::cout << YELLOW << this->_name << " couldn’t sign " << form.getName() << " beacause " << e.what() << RESET << std::endl;
-	}
-	catch (Form::GradeTooLowException &e)
+	catch (std::exception &e)
 	{
 		std::cout << YELLOW << this->_name << " couldn’t sign " << form.getName() << " beacause " << e.what() << RESET << std::endl;
 	}

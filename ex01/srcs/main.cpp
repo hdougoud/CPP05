@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 17:07:11 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/10 19:21:39 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/11 15:30:17 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,51 @@
 #include "color.hpp"
 #include "Form.hpp"
 
-void	hireBureaucrat(const std::string &name, int grade);
-void	createForm(const std::string &name, int executionGrade, int signatureGrade);
+void	signForm(int bureaucratGrade, int executionGrade, int signatureGrade);
+void	doubleSignature(int bureaucratGrade, int executionGarde, int signatureGrade);
 
 int main (void)
 {
+	signForm(-1, 50, 50);
+	signForm(10, -1, 50);
+	signForm(10, 50, -1);
+	signForm(10, 151, 50);
+	signForm(10, 50, 151);
+	signForm(10, 50, 50);
+	signForm(140, 50, 50);
+	doubleSignature(45, 46, 46);
+	return (0);
+}
+
+void	signForm(int bureaucratGrade, int executionGrade, int signatureGrade)
+{
 	try
 	{
-		Bureaucrat	fred("Fred", 100);
-		Bureaucrat	john("John", 30);
-		Bureaucrat	josh("Josh", 10);
-		Form		form("Pearl Harbor", 50, 25);
-
-		fred.signForm(form);
+		Bureaucrat	bureaucrat("John", bureaucratGrade);
+		Form		form("Pearl Harbor", executionGrade, signatureGrade);
+		
+		bureaucrat.signForm(form);
 	}
 	catch (std::exception &e)
 	{
 		std::cout << YELLOW << e.what() << RESET << std::endl;
 	}
-	return (0);
+	std::endl(std::cout);
 }
 
+void	doubleSignature(int bureaucratGrade, int executionGarde, int signatureGrade)
+{
+	try
+	{
+		Bureaucrat	john("John", bureaucratGrade);
+		Bureaucrat	fred("Fred", bureaucratGrade);
+		Form		form("Apollo", executionGarde, signatureGrade);
+
+		fred.signForm(form);
+		john.signForm(form);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << YELLOW << e.what() << RESET << std::endl;
+	}
+}

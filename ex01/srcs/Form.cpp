@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 18:46:19 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/10 19:24:34 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/11 15:19:09 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	Form::beSigned(const Bureaucrat &bureaucrat)
 	}
 	if (this->_signatureGrade < bureaucrat.getGrade())
 	{
-		throw Form::GradeTooLowException();;
+		throw Bureaucrat::GradeTooLowException();
 	}
 	this->_isSigned = true;
 }
