@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 18:11:54 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/11 15:21:32 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/12 19:01:11 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <exception>
 #include <iostream>
 #include "color.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(75)
 {
@@ -86,7 +86,7 @@ void	Bureaucrat::demotion(void)
 	this->_grade += 1;
 }
 
-void Bureaucrat::signForm(Form &form) const
+void Bureaucrat::signForm(AForm &form) const
 {
 	try
 	{

@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 17:17:20 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/10 13:18:25 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/12 19:01:06 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <ostream>
 #include <string>
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -31,7 +31,7 @@ class Bureaucrat
 		int		getGrade(void) const;
 		void	promotion(void);
 		void	demotion(void);
-		void	signForm(Form &form) const;
+		void	signForm(AForm &form) const;
 	private:
 		const std::string	_name;
 		int					_grade;
