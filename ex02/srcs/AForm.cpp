@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 18:46:19 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/11 15:42:16 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/13 23:59:59 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,13 @@ void	AForm::beSigned(const Bureaucrat &bureaucrat)
 	this->_isSigned = true;
 }
 
+void	AForm::execute(const Bureaucrat &executor) const
+{
+	if (!this->_isSigned)
+		//trow exception
+	
+}
+
 const char	*AForm::GradeTooHighException::what() const throw()
 {
 	return ("Form grade to High");
@@ -111,5 +118,4 @@ std::ostream	&operator<<(std::ostream &os, const AForm &src)
 	<< src.getExecutionGrade() << std::endl;
 	return (os);
 }
-
 

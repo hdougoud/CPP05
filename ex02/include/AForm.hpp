@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 18:46:28 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/13 14:52:50 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/13 23:46:20 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class AForm
 		int					getExecutionGrade(void) const;
 		int					getSignatureGrade(void) const;
 		void				beSigned(const Bureaucrat &bureaucrat);
+		void				execute(Bureaucrat const &executor) const;
 	private:
 		const std::string	_name;
 		bool				_isSigned;
