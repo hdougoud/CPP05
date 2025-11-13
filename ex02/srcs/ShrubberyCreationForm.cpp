@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 14:55:40 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/12 19:05:02 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/13 15:15:44 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubbery Creation", 137
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubbery Creation", 137, 145), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("Shrubbery Creation", 137, 145), _target(target)
 {
 	std::cout << C_CSTR << "ShrubberyCreationForm : Ordinary constrcutor called" << RESET << std::endl;
 	return ;
@@ -38,7 +38,6 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	std::cout << C_ASNM << "ShrubberyCreationForm : Assignment operator called" << RESET << std::endl;
 	if (this != &src)
 	{
-		this->_target = src._target;
 		AForm::operator=(src);
 	}
 	return (*this);

@@ -6,9 +6,11 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 18:46:28 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/11 15:40:08 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/13 14:52:50 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #include <exception>
 #include <ostream>

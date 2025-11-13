@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 17:07:11 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/12 19:10:27 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/13 14:55:19 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ void	doubleSignature(int bureaucratGrade, int executionGarde, int signatureGrade
 
 int main (void)
 {
-	ShrubberyCreationForm test("test");
+	RobotomyRequestForm robot;
 
-	test.execAction();
-
+	robot.execAction();
 	return (0);
 }
 
