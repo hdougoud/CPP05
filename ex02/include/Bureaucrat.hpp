@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 17:17:20 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/12 19:01:06 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/14 12:03:47 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Bureaucrat
 		void	promotion(void);
 		void	demotion(void);
 		void	signForm(AForm &form) const;
+		void	execute(AForm  const &form) const;
 	private:
 		const std::string	_name;
 		int					_grade;

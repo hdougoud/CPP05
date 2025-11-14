@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 18:11:54 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/12 19:01:11 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/14 16:38:01 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(75)
 {
-	std::cout << C_CSTR << "Bureaucrat : Default constructor called" << RESET << std::endl;
+	//std::cout << C_CSTR << "Bureaucrat : Default constructor called" << RESET << std::endl;
 	return ;
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade(grade)
 {
+	//std::cout << C_CSTR << "Bureaucrat : Ordinary constructor called" << RESET << std::endl;
 	if (grade < 1)
 	{
 		throw Bureaucrat::GradeTooHighException();
@@ -32,19 +33,18 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade
 	{
 		throw Bureaucrat::GradeTooLowException();
 	}
-	std::cout << C_CSTR << "Bureaucrat : Ordinary constructor called" << RESET << std::endl;
 	return ;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src._name), _grade(src._grade)
 {
-	std::cout << C_CSTR << "Bureaucrat : Copy constructor called" << RESET << std::endl;
+	//std::cout << C_CSTR << "Bureaucrat : Copy constructor called" << RESET << std::endl;
 	return ;
 }
 
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &src)
 {
-	std::cout << C_ASNM << "Bureaucrat : Assignment operator called" << RESET << std::endl;
+	//std::cout << C_ASNM << "Bureaucrat : Assignment operator called" << RESET << std::endl;
 	if (this != &src)
 	{
 		this->_grade = src._grade;
@@ -54,7 +54,7 @@ Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &src)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << C_DSTR << "Bureaucrat : Destructor called" << RESET << std::endl;
+	//std::cout << C_DSTR << "Bureaucrat : Destructor called" << RESET << std::endl;
 	return ;
 }
 
@@ -96,6 +96,18 @@ void Bureaucrat::signForm(AForm &form) const
 	catch (std::exception &e)
 	{
 		std::cout << YELLOW << this->_name << " couldn’t sign " << form.getName() << " beacause " << e.what() << RESET << std::endl;
+	}
+}
+
+void	Bureaucrat::execute(AForm const &form) const
+{
+	try
+	{
+		form.execute(*this);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << RED << e.what() << RESET << std::endl;
 	}
 }
 

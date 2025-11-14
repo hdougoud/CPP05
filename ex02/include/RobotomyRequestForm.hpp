@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 10:36:45 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/13 14:54:51 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/14 12:03:20 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class RobotomyRequestForm : public AForm
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &src);
 		~RobotomyRequestForm();
 
-		void	execAction(void);
+		void	execAction(void) const;
 	private:
 		const std::string _target;
 };

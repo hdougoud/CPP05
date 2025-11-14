@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 17:07:11 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/13 14:55:19 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/14 17:02:18 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,47 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 
-void	signForm(int bureaucratGrade, int executionGrade, int signatureGrade);
-void	doubleSignature(int bureaucratGrade, int executionGarde, int signatureGrade);
-
 int main (void)
 {
-	RobotomyRequestForm robot;
+	ShrubberyCreationForm	home("Home");
+	PresidentialPardonForm	pardon("Jeff");
+	RobotomyRequestForm		robot("Fred");
+	ShrubberyCreationForm	noSigned("No Signed");
 
-	robot.execAction();
+	try
+	{
+		Bureaucrat	john("John", 10);
+		john.signForm(home);
+		john.signForm(pardon);
+		john.signForm(robot);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << RED << e.what() << RESET << std::endl;
+	}
+
+	try
+	{
+		Bureaucrat	jeff("Jeff", 5);
+		jeff.execute(home);
+		jeff.execute(pardon);
+		jeff.execute(robot);
+		jeff.execute(noSigned);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << RED << e.what() << RESET << std::endl;
+	}
+
+	try
+	{
+		Bureaucrat fred("Fred", 100);
+		fred.execute(home);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << RED << e.what() << RESET << std::endl;
+	}
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 19:10:37 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/13 14:54:28 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/14 12:03:08 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm &operator=(const PresidentialPardonForm &src);
 		~PresidentialPardonForm();
 
-		void	execAction(void);
+		void	execAction(void) const;
 	private:
 		const std::string	_target;
 };
