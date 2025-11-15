@@ -6,16 +6,20 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 18:07:17 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/14 18:57:42 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/15 21:44:43 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
+#include <exception>
 #include <iostream>
 #include "AForm.hpp"
+#include "color.hpp"
+#include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
-static std::string functList[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+static std::string	formName[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 
 Intern::Intern()
 {
@@ -42,14 +46,36 @@ Intern::~Intern()
 	return ;
 }
 
-AForm	*Intern::makeForm(const std::string &name, const std::string &target) 
+AForm	*Intern::makeForm(const std::string &name, const std::string &target)
 {
+	int i = 0;
 
-	AForm	form;
-	for(int i = 0; i < 3; i++)
+	while (i < 3)
 	{
-		if (name == functList[i])
+		if (name == formName[i])
+			break ;
+		i++;
 	}
-	return (form);
+	try
+	{
+		switch (i)
+		{
+			case 0:
+				return (new ShrubberyCreationForm(target));
+			case 1:
+				return (new RobotomyRequestForm(target));
+			case 2:
+				return (new PresidentialPardonForm(target));
+			default:
+				std::cout << YELLOW << "No form with this name" << RESET << std::endl;
+				return (0);
+				
+		}
+	}
+	catch (std::exception &e)
+	{
+		std::cout << RED << e.what() << RESET << std::endl;
+		return (0);
+	}
 }
 

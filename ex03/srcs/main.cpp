@@ -6,59 +6,69 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 17:07:11 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/14 17:02:18 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/15 22:48:56 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <exception>
 #include <iostream>
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 #include "color.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
+
+void	signForm(Bureaucrat bureaucrat, AForm *form);
+void	executeForm(Bureaucrat bureaucrat, AForm *form);
 
 int main (void)
 {
-	ShrubberyCreationForm	home("Home");
-	PresidentialPardonForm	pardon("Jeff");
-	RobotomyRequestForm		robot("Fred");
-	ShrubberyCreationForm	noSigned("No Signed");
+	Intern	someRandomIntern;
+
+	AForm	*shrubbery = someRandomIntern.makeForm("shrubbery creation", "Home");
+	AForm	*robotomy = someRandomIntern.makeForm("robotomy request", "John");
+	AForm	*presidential = someRandomIntern.makeForm("presidential pardon", "Fred");
+	AForm	*dontExist = someRandomIntern.makeForm("dontExist", "unknow");
 
 	try
 	{
-		Bureaucrat	john("John", 10);
-		john.signForm(home);
-		john.signForm(pardon);
-		john.signForm(robot);
+		Bureaucrat	john("John", 5);
+		signForm(john, shrubbery);
+		signForm(john, robotomy);
+		signForm(john, presidential);
+		signForm(john, dontExist);
+		executeForm(john, shrubbery);
+		executeForm(john, robotomy);
+		executeForm(john, presidential);
+		executeForm(john, dontExist);
 	}
 	catch (std::exception &e)
 	{
 		std::cout << RED << e.what() << RESET << std::endl;
 	}
 
-	try
-	{
-		Bureaucrat	jeff("Jeff", 5);
-		jeff.execute(home);
-		jeff.execute(pardon);
-		jeff.execute(robot);
-		jeff.execute(noSigned);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << RED << e.what() << RESET << std::endl;
-	}
-
-	try
-	{
-		Bureaucrat fred("Fred", 100);
-		fred.execute(home);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << RED << e.what() << RESET << std::endl;
-	}
+	delete shrubbery;
+	delete robotomy;
+	delete presidential;
+	delete dontExist;
 	return (0);
 }
 
+void	signForm(Bureaucrat bureaucrat, AForm *form)
+{
+	if (!form)
+	{
+		std::cout << RED << "This form is not in the correct format" << RESET << std::endl;
+		return ;
+	}
+	bureaucrat.signForm(*form);
+}
+
+void	executeForm(Bureaucrat bureaucrat, AForm *form)
+{
+	if (!form)
+	{
+		std::cout << RED << "This form is not in the correct format" << RESET << std::endl;
+		return ;
+	}
+	bureaucrat.execute(*form);
+}

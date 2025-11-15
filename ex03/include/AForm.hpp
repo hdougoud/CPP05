@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 18:46:28 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/14 16:13:36 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/15 22:48:14 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class AForm
 		AForm(const std::string &name, int executionGrade, int signatureGrade);
 		AForm(const AForm &src);
 		AForm &operator=(const AForm &src);
-		~AForm();
+		virtual ~AForm();
 
 		class GradeTooHighException;
 		class GradeTooLowException;
